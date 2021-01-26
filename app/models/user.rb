@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  require 'csv'
   EMAIL_VALID = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_many :posts, dependent: :destroy
@@ -14,5 +15,11 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name} "
+  end
+  def personal_data=(value)
+    value = JSON.parse(value) if value.is_a? String
+    super(value)
+  rescue JSON::ParserError
+    super(value)
   end
 end
