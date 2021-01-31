@@ -1,0 +1,13 @@
+<div align="center"><% @posts.each do |post| %>
+  <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header"><%= post.title %></div>
+      <div class="card-body">
+        <%= post.body %>
+      </div>
+    <p class="card-text" align="centre"><%= social_share_button_tag(post.title) %></p>
+  </div>
+<% end %>
+</div>
+<%#= social_share_button_tag %>
+
+
