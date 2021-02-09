@@ -3,4 +3,7 @@ class Post < ApplicationRecord
   has_many :images, as: :imageable
 
   scope :published, -> { where.not(published_at: nil) }
+  def publish!
+    update(published_at: Time.now)
+  end
 end

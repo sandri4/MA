@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 gem 'bootstrap', '~> 5.0.0.beta1'
+gem 'grape'
+gem 'grape-entity'
+gem 'grape-swagger'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use pg as the database for Active Record
