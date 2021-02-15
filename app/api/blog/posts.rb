@@ -1,14 +1,26 @@
 class Blog::Posts < Grape::API
   namespace :posts do
     get do
-      User.find(params[:user_id]).posts.published
+      post = User.find(params[:user_id]).posts.published
+      present post, with: Blog::Entities::Post
+    end
+    params do
+      requires :title, type: String
+      requires :body, type: String
+      requires :user_id, type: Integer
+      requires :images_attributes, type: Array do
+        requires :url, type: String
+      end
     end
     post do
-      User.find(params[:user_id]).posts.create!(params)
+      post = User.find(params[:user_id]).posts.create!(params)
+      present post, with: Blog::Entities::Post
     end
+
     route_param :post_id do
       get do
-        User.find(params[:user_id]).posts.published.find(params[:post_id])
+        post = User.find(params[:user_id]).posts.published.find(params[:post_id])
+        present post, with: Blog::Entities::Post
       end
 
       params do
