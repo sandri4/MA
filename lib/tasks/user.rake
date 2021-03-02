@@ -3,8 +3,8 @@ namespace :user do
   desc "import"
   task import: :environment do
     _, file_path = ARGV
-      CSV.foreach(file_path, headers: true) do |row|
-        User.create! row.to_hash
+    CSV.foreach(file_path, headers: true) do |row|
+      User.create! row.to_hash
     end
   end
 

@@ -3,7 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'activeadmin'
 gem 'bootstrap', '~> 5.0.0.beta1'
+gem 'devise'
 gem 'grape'
 gem 'grape-entity'
 gem 'grape-swagger'
@@ -16,6 +18,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 gem 'social-share-button'
+gem 'sorcery'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'sprockets', '~> 4'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
@@ -24,6 +27,8 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
+gem 'jwt'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

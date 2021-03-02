@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
- group = Group.create!({ name: "Students#{Time.now.to_i}", group_type: 'Study', status: :active })
- user = User.create!( first_name: "Tolik#{Time.now.to_i}", last_name: 'Tolikovsky6', personal_data: 'sdfsdfsd',
-                      password: 'password6', email: "email#{Time.now.to_i}@email.com")
- Post.create!( title: "Post#{Time.now.to_i}", body: "Body#{Time.now.to_i}", published_at: "#{DateTime.current.to_i}", user_id: 1)
+group = Group.create!({ name: "Students#{Time.now.to_i}", group_type: 'Study', status: :active })
+user = User.create!(first_name: "Tolik#{Time.now.to_i}", last_name: "Tolikovsky6#{Time.now.to_i}", personal_data: "sdfsdfsd#{Time.now.to_i}",
+                    password: 'password6', email: "email#{Time.now.to_i}@email.com")
+Post.create!(title: "Post#{Time.now.to_i}", body: "Body#{Time.now.to_i}", published_at: "#{DateTime.current.to_i}", user_id: 1)
 Membership.create!(user: user, group: group)
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

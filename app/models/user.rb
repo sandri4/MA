@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  authenticates_with_sorcery!
   require 'csv'
   EMAIL_VALID = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -16,6 +17,7 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name} "
   end
+
   def personal_data=(value)
     value = JSON.parse(value) if value.is_a? String
     super(value)

@@ -21,6 +21,6 @@ class Group < ApplicationRecord
   end
 
   def add_user_to_ban(user_id)
-    memberships.find_by(user_id: user_id)&.update( status: :banned)
+    memberships.find_by(user_id: user_id)&.update(status: :banned)
   end
 end
